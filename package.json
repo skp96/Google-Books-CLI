@@ -1,0 +1,33 @@
+{
+  "name": "google_books_cli",
+  "version": "1.0.0",
+  "description": "A CLI application that uses Google's Book API",
+  "main": "index.js",
+  "bin": {
+    "book-cli": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "mocha --reporter spec",
+    "build": "babel src -d lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skp96/Google-Books-CLI.git"
+  },
+  "author": "Sunny Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skp96/Google-Books-CLI/issues"
+  },
+  "homepage": "https://github.com/skp96/Google-Books-CLI#readme",
+  "dependencies": {
+    "link": "^0.1.5",
+    "node-fetch": "^2.6.1",
+    "prompt": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.5",
+    "mocha": "^9.0.0"
+  }
+}
