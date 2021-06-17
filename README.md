@@ -14,7 +14,7 @@ After successfully cloning the repository to your desktop, please proceed to ins
 
 npm install 
 
-# Execute CLI Script to launch application:
+## Execute CLI Script to launch application:
 
 First run: npm link
 * This command will install the book-cli command found in the bin field of the package.json file.
