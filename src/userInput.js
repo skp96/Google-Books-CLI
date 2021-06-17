@@ -62,7 +62,7 @@ exports.UserInput = class UserInput {
     if (bookTitles[input]) {
       global.readingList.addBookToList(input)
     } else {
-      console.log("It seems you inputed the incorrect Id, please try again!")
+      console.log("It seems you inputted the incorrect Id, please try again!")
       this.initAddToListPrompt()
     }
   }
