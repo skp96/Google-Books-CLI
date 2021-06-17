@@ -21,4 +21,4 @@ First run: npm link
 
 Then execute book-cli to launch the CLI application.
 
-To remove the CLI command, execute npm unlink in the project repository.
+To remove the CLI command, execute npm unlink in the project directory.
