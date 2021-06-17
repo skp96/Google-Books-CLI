@@ -52,7 +52,7 @@ exports.UserInput = class UserInput {
       global.cli.exit();
     }else {
         // Invalid selection - initalize post search prompt again
-        console.log("Please enter a valid selection - List or Search")
+        console.log("Please enter a valid selection - Add to List, Search, or Exit")
         this.initPostSearchPrompt();
     }
   }
