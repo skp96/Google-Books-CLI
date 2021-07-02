@@ -12,18 +12,21 @@ exports.FetchBooks = class FetchBooks {
   // Async function to fetch books and pass results to CLI to display
   async fetchBooks (err, {query}) {
     const encodedQuery = encodeURI(query)
-
-    try {
-      console.log(`Fetching results for ${query} from Google`)
-      const result = await fetch(this.url + encodedQuery + this.maxResult + this.type )
-      const books = await result.json();
-      global.searchResult = new List(books);
-      global.cli.displaySearchResults(global.searchResult);
+    console.log(query);
+    if (query === "") {
+      console.log("Please enter a valid input")
+      global.cli.startCli();
+    } else {
+      try {
+        console.log(`Fetching results for ${query} from Google`)
+        const result = await fetch(this.url + encodedQuery + this.maxResult + this.type )
+        const books = await result.json();
+        global.searchResult = new List(books);
+        global.cli.displaySearchResults(global.searchResult);
       
-    } catch(err) {
-      console.log("Oh no, something went wrong! Restarting Google Books CLI application")
-      global.cli = new Cli();
-      global.cli.restartCLI();
+      } catch(err) {
+        console.log("Oh no, something went wrong! Please restart the Google Books CLI application")
+      }
     }
     
   }

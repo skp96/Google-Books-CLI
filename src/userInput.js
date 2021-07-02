@@ -1,6 +1,7 @@
 const prompt = require("prompt")
-const FetchBooks = require("./fetchBooks").FetchBooks;
+const FetchBooks = require('./fetchBooks').FetchBooks;
 const List = require('./list').List;
+const config = require("config");
 
 exports.UserInput = class UserInput {
   constructor() {
@@ -36,7 +37,7 @@ exports.UserInput = class UserInput {
   }
 
   processPostSearchPrompt(err, {input}) {
-    if (input === 'Add to List') {
+    if (input === config.get("processPostSearchAdd")) {
         // Get Book titles, init a global readling list, and instruct CLI to display book titles
 
         console.log("Please enter the Id of the book you would like to add to your Reading List")
@@ -44,11 +45,11 @@ exports.UserInput = class UserInput {
         global.readingList = global.readingList ? global.readingList :  new List();
         global.cli.displayBookTitles(bookTitles);
 
-    } else if (input === "Search") {
+    } else if (input === config.get("processPostSearchFind")) {
         // Initalize search prompt
 
         this.initSearchPrompt()
-    } else if (input === "Exit") {
+    } else if (input === config.get("processPostSearchExit")) {
       global.cli.exit();
     }else {
         // Invalid selection - initalize post search prompt again
@@ -68,11 +69,11 @@ exports.UserInput = class UserInput {
   }
 
   processGeneralOptions(err, {input}) {
-    if (input === "Search") {
+    if (input === config.get("processPostSearchFind")) {
       this.initSearchPrompt();
-    } else if (input === "View List") {
+    } else if (input === config.get("processPostSearchView")) {
       global.cli.displayList();
-    } else if (input === "Exit") {
+    } else if (input === config.get("processPostSearchExit")) {
       global.cli.exit()
     } else {
       console.log("Invalid input, please try again!")

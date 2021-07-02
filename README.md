@@ -22,3 +22,7 @@ First run: npm link
 Then execute book-cli to launch the CLI application.
 
 To remove the CLI command, execute npm unlink in the project directory.
+
+## To execute test cases:
+
+* To execute test cases, please run the following command: npm run test
